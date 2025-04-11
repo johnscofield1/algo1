@@ -1,72 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Box Layout</title>
-    <style>
-        .title {
-            width: 100px;
-            left: 100px;
-            border: 2px solid black;
-            text-align: center;
-            padding: 5px;
-            position:absolute;
-            top: 20px;
-            left: 150px;
-        }
-        .box {
-            border: 2px solid black;
-            position: absolute;
-        }
-        .box1 {
-            width: 150px;
-            height: 200px;
-            top: 70px;
-            left: 50px;
-        }
-        .box2 {
-            width: 300px;
-            height: 250px;
-            top: 70px;
-            left: 200px;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Uniform Box Layout with Scroll</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
 
-        }
-        .box3 {
-            width: 150px;
-            height: 200px;
-            top: 270px;
-            left: 50px;
-        }
-        .box4 {
-            width: 300px;
-            height: 150px;
-            top: 320px;
-            left: 200px;
-        }
-        
-    </style>
+    .title {
+      text-align: center;
+      padding: 10px;
+      background-color: #333;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    .main-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 0;
+      max-width: 800px;
+      height: 500px;
+      margin: 0 auto;
+      border: 2px solid black;
+    }
+
+    .box {
+      border: 1px solid black;
+      background-color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      box-sizing: border-box;
+      padding: 10px;
+    }
+
+    .box2 {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: stretch;
+      overflow-y: auto;
+    }
+
+    form {
+      width: 100%;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 15px;
+      background-color: #28a745;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+  </style>
 </head>
 <body>
-    <div class="title">Title</div>
-    <div class="box box1"></div>
+
+  <div class="title">RegistrationForm</div>
+
+  <div class="main-container">
+    <div class="box box1">Box 1</div>
+
     <div class="box box2">
-        <form action="submit.php"><label for="fname"><b>Full Name:</b></label><br>
-        <input type="text" id="fname" name="fname"><br>
-        <label for="email">Enter your email:</label><br>
-        <input type="email" id="email" name="email" required><br>
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password"><br>
-        <label for="confirm password">Confirm Password:</label><br>
-        <input type="confirm password" id="confirm password" name="confirm password"><br>
-        <label for="location">Location:</label><br>
-        <input type="text" id="location"
+      <form action="submit.php" method="POST">
+        <label for="fname">Full Name:</label>
+        <input type="text" id="fname" name="fname" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" id="confirm-password" name="confirm-password" required>
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required>
+
+        <label for="comments">Comments:</label>
+        <textarea id="comments" name="comments" rows="4"></textarea>
+
         <button type="submit">Submit</button>
-        </form>
+      </form>
     </div>
-    <div class="box box3"></div>
-    <div class="box box4"></div>
-    <div class="box box5"></div>
+
+    <div class="box box3">Box 3</div>
+    <div class="box box4">Box 4</div>
+  </div>
+
 </body>
 </html>
-
